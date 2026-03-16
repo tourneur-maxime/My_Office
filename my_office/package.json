@@ -1,0 +1,53 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vue-tsc && vite build && vite build --ssr",
+        "dev": "concurrently \"php artisan serve --port=8080\" \"vite\"",
+        "lint": "eslint resources/js --ext .js,.ts,.vue --ignore-path .gitignore --fix",
+        "test": "vitest run"
+    },
+    "devDependencies": {
+        "@inertiajs/vue3": "^2.0.0",
+        "@rushstack/eslint-patch": "^1.8.0",
+        "@tailwindcss/forms": "^0.5.3",
+        "@tailwindcss/vite": "^4.0.0",
+        "@types/node": "^25.0.9",
+        "@vitejs/plugin-vue": "^6.0.0",
+        "@vue/eslint-config-prettier": "^9.0.0",
+        "@vue/eslint-config-typescript": "^13.0.0",
+        "@vue/server-renderer": "^3.4.0",
+        "@vue/test-utils": "^2.4.6",
+        "autoprefixer": "^10.4.12",
+        "axios": "^1.13.6",
+        "concurrently": "^9.2.1",
+        "eslint": "^8.57.0",
+        "eslint-plugin-vue": "^9.23.0",
+        "jsdom": "^27.4.0",
+        "laravel-vite-plugin": "^2.0.0",
+        "postcss": "^8.4.31",
+        "prettier": "^3.3.0",
+        "prettier-plugin-organize-imports": "^4.0.0",
+        "prettier-plugin-tailwindcss": "^0.6.5",
+        "tailwindcss": "^3.2.1",
+        "typescript": "^5.6.3",
+        "vite": "^7.0.7",
+        "vitest": "^4.0.17",
+        "vue": "^3.4.0",
+        "vue-tsc": "^2.0.24"
+    },
+    "dependencies": {
+        "@rollup/rollup-linux-arm64-gnu": "^4.59.0",
+        "@tiptap/extension-color": "^3.17.1",
+        "@tiptap/extension-text-style": "^3.17.1",
+        "@tiptap/extension-underline": "^3.17.1",
+        "@tiptap/starter-kit": "^3.17.1",
+        "@tiptap/vue-3": "^3.17.1",
+        "daisyui": "^5.5.14",
+        "lodash": "^4.17.21",
+        "pinia": "^3.0.4",
+        "vue3-datepicker": "^0.4.0",
+        "vuedraggable": "^4.1.0"
+    }
+}

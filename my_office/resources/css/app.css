@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* Glass Input, Select & Textarea Styles */
+    .glass-input,
+    .glass-select,
+    .glass-textarea,
+    textarea {
+        @apply w-full rounded-lg px-4 py-2.5 text-sm font-medium;
+        @apply bg-[hsl(var(--bg-surface))]/60 backdrop-blur-xl;
+        @apply border-2 border-[hsl(var(--border))]/30;
+        @apply text-[hsl(var(--text-main))] placeholder:text-[hsl(var(--text-muted))]/50;
+        @apply transition-all duration-150;
+        @apply focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))]/30 focus:border-[hsl(var(--primary))];
+        @apply hover:border-[hsl(var(--border))]/50;
+        @apply shadow-sm;
+    }
+
+    .glass-textarea,
+    textarea {
+        @apply resize-y min-h-[100px];
+    }
+
+    .glass-select {
+        @apply cursor-pointer appearance-none bg-right pr-10;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+    }
+
+    .glass-label {
+        @apply block text-sm font-semibold text-[hsl(var(--text-main))] mb-1.5;
+    }
+
+    /* Remove number input spinners */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+    }
+
+    /* Liquid Glass Card */
+    .liquid-glass {
+        @apply rounded-xl bg-[hsl(var(--bg-surface))]/60 backdrop-blur-xl;
+        @apply border border-[hsl(var(--card-border))];
+        @apply shadow-glass transition-all duration-300;
+    }
+
+    .liquid-glass:hover {
+        @apply shadow-glass-hover;
+    }
+
+    /* Navigation Glass */
+    .nav-glass {
+        @apply bg-[hsl(var(--bg-surface))]/80 backdrop-blur-xl;
+        @apply border-b border-[hsl(var(--border))]/50;
+    }
+
+    /* Button Styles */
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5;
+        @apply font-semibold text-sm transition-all duration-300;
+        @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+        @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    }
+
+    .btn-primary {
+        @apply bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--primary))]/90;
+        @apply text-white shadow-lg shadow-[hsl(var(--primary))]/30;
+        @apply hover:shadow-xl hover:shadow-[hsl(var(--primary))]/40 hover:scale-[1.02];
+        @apply focus:ring-[hsl(var(--primary))]/50;
+    }
+
+    .btn-secondary {
+        @apply bg-[hsl(var(--bg-surface))]/80 backdrop-blur-xl;
+        @apply text-[hsl(var(--text-main))] border-2 border-[hsl(var(--border))]/30;
+        @apply hover:border-[hsl(var(--border))]/50 hover:bg-[hsl(var(--bg-surface))];
+        @apply focus:ring-[hsl(var(--border))]/30;
+    }
+
+    .btn-outline {
+        @apply bg-transparent border-2 border-[hsl(var(--primary))];
+        @apply text-[hsl(var(--primary))];
+        @apply hover:bg-[hsl(var(--primary))]/10 hover:shadow-lg hover:shadow-[hsl(var(--primary))]/20;
+        @apply focus:ring-[hsl(var(--primary))]/30;
+    }
+
+    .btn-ghost {
+        @apply bg-transparent text-[hsl(var(--text-muted))];
+        @apply hover:bg-[hsl(var(--bg-surface))]/50 hover:text-[hsl(var(--text-main))];
+        @apply focus:ring-[hsl(var(--border))]/30;
+    }
+
+    .btn-sm {
+        @apply px-3 py-2 text-xs;
+    }
+
+    .btn-error {
+        @apply bg-gradient-to-r from-red-600 to-red-500;
+        @apply text-white shadow-lg shadow-red-500/30;
+        @apply hover:shadow-xl hover:shadow-red-500/40 hover:scale-[1.02];
+        @apply focus:ring-red-500/50;
+    }
+}
+
+@layer base {
+    :root {
+        /* Fallback values if JS hasn't loaded yet */
+        --bg-base: 30 15% 97%;
+        --bg-surface: 0 0% 100%;
+        --bg-elevated: 0 0% 100%;
+        --text-main: 222.2 47.4% 11.2%;
+        --text-muted: 215.4 16.3% 46.9%;
+        --border: 214.3 31.8% 91.4%;
+        --border-strong: 212.7 26.8% 83.9%;
+        --card-border: 214.3 31.8% 91.4%;
+        --primary: 210 100% 50%;
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        /* Dark mode fallback values */
+        --bg-base: 240 8% 8%;
+        --bg-surface: 240 7% 11%;
+        --bg-elevated: 240 6% 14%;
+        --text-main: 0 0% 96%;
+        --text-muted: 215 20.2% 65.1%;
+        --border: 217.2 32.6% 17.5%;
+        --border-strong: 215.3 25% 26.7%;
+        --card-border: 217.2 32.6% 17.5%;
+    }
+
+    body {
+        @apply bg-[hsl(var(--bg-base))] text-[hsl(var(--text-main))];
+    }
+
+    /* Smooth theme transitions - only for backgrounds and borders, NOT text color */
+    * {
+        transition-property: background-color, border-color;
+        transition-duration: 200ms;
+        transition-timing-function: ease-in-out;
+    }
+
+    /* Interactive elements get full transitions */
+    button, a, input, select, textarea {
+        transition-property: background-color, border-color, color, box-shadow, transform;
+        transition-duration: 150ms;
+    }
+
+    /* Text elements should NOT have transitions to prevent slow color changes */
+    h1, h2, h3, h4, h5, h6, p, span, label, div {
+        transition-property: background-color, border-color;
+        transition-duration: 200ms;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
