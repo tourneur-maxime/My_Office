@@ -1,0 +1,88 @@
+#######################################
+# GLOBAL AGENT SETTINGS
+#######################################
+
+[agent]
+model = "gpt-5-codex"
+approval_policy = "on-request"
+temperature = 0.1
+
+#######################################
+# ENVIRONMENT
+#######################################
+
+[environment]
+sandbox = "workspace-write"
+
+#######################################
+# SKILLS ACTIVATION
+#######################################
+
+[skills]
+enabled = [
+  "plan_execution",
+  "analyze_repo",
+  "build_context",
+  "generate_diagrams",
+  "generate_dev_doc",
+  "generate_user_doc",
+  "qa_repo",
+  "update_docs_on_change"
+]
+
+#######################################
+# MULTI-AGENT SETUP
+#######################################
+
+[agents.planner]
+model = "gpt-5"
+reasoning_effort = "high"
+instruction_file = "AGENTS.planner.md"
+description = "Creates strict execution plans"
+
+[agents.executor]
+model = "gpt-5-codex"
+reasoning_effort = "medium"
+instruction_file = "AGENTS.executor.md"
+description = "Executes plans deterministically"
+
+[agents.critic]
+model = "gpt-5"
+reasoning_effort = "high"
+instruction_file = "AGENTS.critic.md"
+description = "Validates execution results"
+
+#######################################
+# ORCHESTRATION POLICY (LOGICAL)
+#######################################
+
+[orchestration]
+mode = "sequential"
+flow = ["planner", "executor", "critic"]
+
+# behavior controls
+retry_on_failure = true
+max_retries = 1
+
+# critic decisions handling
+on_critic_ok = "finalize"
+on_critic_retry = "executor"
+on_critic_replan = "planner"
+
+#######################################
+# ARTIFACTS / STATE
+#######################################
+
+[state]
+artifacts_dir = "/tmp"
+persist_memory = true
+memory_dir = ".codex/memory"
+
+#######################################
+# LOGGING (OPTIONAL MAIS UTILE)
+#######################################
+
+[logging]
+level = "info"
+save_execution_trace = true
+trace_file = ".codex/logs/execution.log"
