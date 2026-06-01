@@ -1,59 +1,135 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# My Office
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A self-hosted freelancer management application built with Laravel, Inertia.js, and Vue 3. Manage clients, prospects, quotes, invoices, and document templates from a single dashboard.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ✨ Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 📊 Dashboard
+- Configurable KPI tiles (clients, prospects, pending quotes, unpaid invoices, revenue, etc.)
+- Quick access to recent invoices and quotes
+- Favorite clients and prospects
+- Dark/light mode toggle, persisted per user
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 👥 CRM
+- **Clients** — contact details, notes, linked invoices and quotes
+- **Prospects** — pipeline tracking, conversion to client
+- **Notes** — freeform notes attached to any entity
 
-## Learning Laravel
+### 🧾 Invoicing
+- Create, edit, and send invoices with line items
+- Quote-to-invoice conversion
+- PDF generation and export
+- Invoice numbering rules (prefix, year, sequence)
+- Status tracking (draft, sent, paid, overdue)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 📝 Quotes
+- Structured quotes with line items and totals
+- Configurable quote number settings
+- Accept / reject / convert to invoice workflow
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 📄 Document Builder
+- Custom document templates with rich text editing (TipTap)
+- Reusable templates for proposals, contracts, etc.
 
-## Laravel Sponsors
+### ⚙️ Settings
+- Company profile (name, address, logo, VAT, IBAN)
+- Appearance preferences (theme mode, colors, radius)
+- Notification preferences
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🛠 Tech Stack
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+| Layer | Technology |
+|-------|-----------|
+| Backend | PHP 8.3 / Laravel 11 |
+| Frontend | Vue 3 + Inertia.js |
+| Build | Vite 7 + TypeScript |
+| Styling | Tailwind CSS v3 + daisyUI |
+| Database | SQLite (default) / MySQL |
+| Rich text | TipTap |
+| State | Pinia |
+| PDF | Laravel DomPDF |
+| E2E tests | Laravel Dusk |
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🚀 Getting Started
 
-## Code of Conduct
+### Requirements
+- PHP 8.3+
+- Composer
+- Node.js 20+
+- SQLite or MySQL
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Install
 
-## Security Vulnerabilities
+```bash
+git clone https://github.com/tourneur-maxime/My_Office.git
+cd My_Office
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+composer install
+npm install
+
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+```
+
+### Run
+
+```bash
+npm run dev
+# Opens PHP dev server on :8080 + Vite HMR in parallel
+```
+
+### Build for production
+
+```bash
+npm run build
+php artisan serve
+```
+
+---
+
+## 📁 Project Structure
+
+```
+app/
+  Http/Controllers/   # InvoiceController, QuoteController, ProspectController...
+  Models/             # Invoice, Quote, Prospect, Client, CompanyProfile...
+  Services/           # PDF generation, import, notifications
+resources/
+  js/
+    Pages/            # Inertia.js pages (Dashboard, Invoices/, Quotes/, Clients/...)
+    Components/       # Shared Vue components
+    Layouts/          # AuthenticatedLayout, GuestLayout
+    Stores/           # Pinia stores (theme, toasts)
+  views/
+    app.blade.php     # Inertia root template
+    invoices/         # Invoice PDF Blade views
+database/
+  migrations/
+  seeders/
+.codex/               # Multi-agent dev config (planner / executor / critic)
+```
+
+---
+
+## 🤖 .codex — Agentic Dev Setup
+
+The `.codex/` folder contains a multi-agent configuration for AI-assisted development:
+
+- **Planner** — breaks down features into strict execution plans
+- **Executor** — implements plans deterministically
+- **Critic** — validates results before finalizing
+
+Uses `gpt-5-codex` / `gpt-5` models with sequential orchestration and automatic retry on failure.
+
+---
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+MIT

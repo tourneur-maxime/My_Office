@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --bg-base: 30 15% 97%;
+        --bg-surface: 0 0% 100%;
+        --bg-elevated: 0 0% 100%;
+        --text-main: 222.2 47.4% 11.2%;
+        --text-muted: 215.4 16.3% 46.9%;
+        --border: 214.3 31.8% 91.4%;
+        --border-strong: 212.7 26.8% 83.9%;
+        --card-border: 214.3 31.8% 91.4%;
+        --primary: 210 100% 50%;
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --bg-base: 240 8% 8%;
+        --bg-surface: 240 7% 11%;
+        --bg-elevated: 240 6% 14%;
+        --text-main: 0 0% 96%;
+        --text-muted: 215 20.2% 65.1%;
+        --border: 217.2 32.6% 17.5%;
+        --border-strong: 215.3 25% 26.7%;
+        --card-border: 217.2 32.6% 17.5%;
+    }
+
+    body {
+        @apply bg-[hsl(var(--bg-base))] text-[hsl(var(--text-main))];
+        font-family: 'Inter', sans-serif;
+    }
+
+    * {
+        transition-property: background-color, border-color;
+        transition-duration: 200ms;
+        transition-timing-function: ease-in-out;
+    }
+
+    button, a, input {
+        transition-property: background-color, border-color, color, box-shadow, transform;
+        transition-duration: 150ms;
+    }
+}
+
+@layer components {
+    .liquid-glass {
+        @apply rounded-xl bg-[hsl(var(--bg-surface))]/60 backdrop-blur-xl;
+        @apply border border-[hsl(var(--card-border))];
+    }
+
+    .demo-badge {
+        @apply fixed top-3 right-3 z-50 flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold;
+        @apply bg-amber-500/20 text-amber-400 border border-amber-500/30 backdrop-blur-sm;
+    }
+}
