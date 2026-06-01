@@ -54,4 +54,35 @@
         @apply fixed top-3 right-3 z-50 flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold;
         @apply bg-amber-500/20 text-amber-400 border border-amber-500/30 backdrop-blur-sm;
     }
+
+    /* SVG chart */
+    .chart-bar         { fill: hsl(var(--primary) / 0.5); transition: fill 150ms; }
+    .chart-bar-active  { fill: hsl(var(--primary)); transition: fill 150ms; }
+    .chart-grid        { stroke: hsl(var(--border)); }
+    .chart-label       { fill: hsl(var(--text-muted)); font-family: inherit; }
+    .chart-value       { fill: hsl(var(--text-main)); font-family: inherit; }
+    .chart-tooltip-bg  { fill: hsl(var(--bg-elevated)); stroke: hsl(var(--border)); stroke-width: 1; }
+
+    /* Document prose */
+    .prose-demo h2 {
+        @apply text-lg font-bold text-[hsl(var(--text-main))] mb-3 mt-6 first:mt-0;
+    }
+    .prose-demo h3 {
+        @apply text-sm font-semibold text-[hsl(var(--text-main))] mb-2 mt-5;
+    }
+    .prose-demo p {
+        @apply text-sm text-[hsl(var(--text-muted))] leading-relaxed mb-3;
+    }
+    .prose-demo strong {
+        @apply text-[hsl(var(--text-main))] font-semibold;
+    }
+    .prose-demo em {
+        @apply italic text-[hsl(var(--text-muted))];
+    }
+    .prose-demo ul {
+        @apply list-disc list-inside space-y-1 mb-3 text-sm text-[hsl(var(--text-muted))];
+    }
+    .prose-demo li {
+        @apply leading-relaxed;
+    }
 }

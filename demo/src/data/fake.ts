@@ -48,3 +48,83 @@ export const fakeQuotes = [
     { id: 2, number: 'DEV-2026-006', client: 'Fintech Clarity', amount: 8200, status: 'draft', date: '2026-05-18' },
     { id: 3, number: 'DEV-2026-005', client: 'Agence Pixel', amount: 3100, status: 'accepted', date: '2026-05-05' },
 ];
+
+export const fakeMonthlyRevenue = [
+    { month: 'Jan', amount: 3200 },
+    { month: 'Fév', amount: 4100 },
+    { month: 'Mar', amount: 2800 },
+    { month: 'Avr', amount: 5600 },
+    { month: 'Mai', amount: 6800 },
+    { month: 'Juin', amount: 1900 },
+];
+
+export const fakeDocuments = [
+    {
+        id: 1,
+        name: 'Contrat de prestation',
+        type: 'Contrat',
+        updatedAt: '2026-05-28',
+        content: `<h2>Contrat de prestation de services</h2>
+<p>Entre <strong>Studio MT</strong>, auto-entrepreneur, SIRET 123 456 789 00012, ci-après désigné « le Prestataire »,</p>
+<p>Et la société <strong>[Nom du client]</strong>, ci-après désignée « le Client »,</p>
+<h3>Article 1 — Objet</h3>
+<p>Le Prestataire s'engage à réaliser les prestations suivantes pour le compte du Client :</p>
+<ul><li>Conception graphique et identité visuelle</li><li>Développement web front-end</li><li>Suivi et maintenance</li></ul>
+<h3>Article 2 — Durée</h3>
+<p>La prestation débutera le <strong>[date de début]</strong> pour une durée de <strong>[X] semaines</strong>.</p>
+<h3>Article 3 — Rémunération</h3>
+<p>Le Client s'engage à régler la somme de <strong>[montant] € HT</strong> selon les modalités définies dans le devis joint. Un acompte de 30 % est dû à la commande, le solde à la livraison.</p>
+<h3>Article 4 — Propriété intellectuelle</h3>
+<p>Les droits de propriété intellectuelle sont transférés au Client après règlement intégral de la facture finale.</p>`,
+    },
+    {
+        id: 2,
+        name: 'Proposition commerciale',
+        type: 'Proposition',
+        updatedAt: '2026-05-15',
+        content: `<h2>Proposition commerciale</h2>
+<p>Bonjour,</p>
+<p>Suite à notre échange, je vous soumets cette proposition pour la réalisation de votre projet digital.</p>
+<h3>Votre besoin</h3>
+<p>Vous souhaitez créer une présence en ligne solide avec un site web moderne et performant, reflet de l'image de votre entreprise.</p>
+<h3>Notre approche</h3>
+<ul><li><strong>Audit et cadrage</strong> — Analyse des besoins et définition des objectifs</li><li><strong>Design UI/UX</strong> — Maquettes sur-mesure et prototypes interactifs</li><li><strong>Développement</strong> — Intégration responsive, optimisée SEO</li><li><strong>Livraison et formation</strong> — Mise en production et prise en main</li></ul>
+<h3>Budget estimatif</h3>
+<p>La réalisation est estimée entre <strong>4 500 € HT</strong> et <strong>6 500 € HT</strong> selon les options retenues. Délai de réalisation : 6 à 8 semaines.</p>`,
+    },
+    {
+        id: 3,
+        name: 'CGV — Conditions générales de vente',
+        type: 'Document légal',
+        updatedAt: '2026-04-10',
+        content: `<h2>Conditions générales de vente</h2>
+<p><em>En vigueur au 1er janvier 2026</em></p>
+<h3>1. Objet et champ d'application</h3>
+<p>Les présentes CGV s'appliquent à toutes les prestations de services réalisées par Studio MT auprès de ses clients professionnels.</p>
+<h3>2. Devis et commandes</h3>
+<p>Tout devis signé vaut bon de commande et engage les deux parties. Les devis sont valables <strong>30 jours</strong> à compter de leur date d'émission.</p>
+<h3>3. Paiement</h3>
+<p>Les factures sont payables à 30 jours date de facture. Un acompte de 30 % est demandé à la commande. En cas de retard de paiement, des pénalités de 3× le taux légal s'appliquent de plein droit.</p>
+<h3>4. Propriété intellectuelle</h3>
+<p>Les droits de propriété intellectuelle sur les livrables sont transférés au Client après règlement intégral des factures.</p>`,
+    },
+    {
+        id: 4,
+        name: 'Cahier des charges type',
+        type: 'Template',
+        updatedAt: '2026-03-22',
+        content: `<h2>Cahier des charges — Projet web</h2>
+<h3>1. Présentation du projet</h3>
+<p>[Description du projet, contexte, enjeux stratégiques]</p>
+<h3>2. Objectifs</h3>
+<ul><li>Objectif principal : [à compléter]</li><li>Objectifs secondaires : [à compléter]</li></ul>
+<h3>3. Public cible</h3>
+<p>[Description de la cible, personas, comportements attendus]</p>
+<h3>4. Fonctionnalités attendues</h3>
+<ul><li>Page d'accueil avec présentation</li><li>Section services / portfolio</li><li>Formulaire de contact sécurisé</li><li>Blog / actualités (optionnel)</li></ul>
+<h3>5. Contraintes techniques</h3>
+<p>CMS souhaité : [WordPress / headless / autre] — Hébergement : [OVH / Netlify / autre]</p>
+<h3>6. Budget et délais</h3>
+<p>Budget alloué : <strong>[X] € HT</strong> — Mise en ligne souhaitée avant le <strong>[date]</strong></p>`,
+    },
+];
