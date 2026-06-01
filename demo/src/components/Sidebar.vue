@@ -41,7 +41,7 @@ const nav = [
                         : 'text-[hsl(var(--text-muted))] hover:bg-[hsl(var(--bg-elevated))] hover:text-[hsl(var(--text-main))]'
                 ]"
             >
-                <svg class="w-4.5 h-4.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                     <path stroke-linecap="round" stroke-linejoin="round" :d="item.icon" />
                 </svg>
                 {{ item.label }}
